@@ -1,9 +1,9 @@
 from fastapi import APIRouter
-from config import settings
+from backend.config import conf
 
 router = APIRouter()
 
 @router.get("/settings", tags=["Settings"])
 async def read_settings():
 
-    return {"DB_URL": settings.DB_URL}
+    return {"DB_URL": conf.DB_URL}

@@ -3,9 +3,9 @@ from fastapi import APIRouter
 from typing import List, Optional
 from sqlalchemy.orm import Session
 
-from schemas import device_schema
-from database import get_db
-from repositories import device_repo
+from backend.schemas import device_schema
+from backend.database import get_db
+from backend.repositories import device_repo
 
 router = APIRouter()
 
@@ -28,7 +28,7 @@ async def get_device(no_device: int, db: Session = Depends(get_db)):
     """
     Get the Device with the given no_device provided by User stored in database
     """
-    db_item = device_repo.DeviceRepo.fetch_by_no_device(db, no_device)
-    if db_item is None:
-        raise HTTPException(status_code=404, detail="Item not found with the given no_device")
-    return db_item
+    db_device = device_repo.DeviceRepo.fetch_by_no_device(db, no_device)
+    if db_device is None:
+        raise HTTPException(status_code=404, detail="Device not found with the given no_device")
+    return db_device

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models import device_model
-from schemas import device_schema
+from backend.models import device_model
+from backend.schemas import device_schema
 
 class DeviceRepo:
     async def create(db: Session, device: device_schema.DeviceCreate):

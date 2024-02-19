@@ -1,18 +1,26 @@
-Command to Run the FastAPI server
+# Vigilys Backend
 
-STEP1: Create virtual environment
+## Install dependencies
 
-pyenv 
-source fastapi-env/bin/activate
+With python3 >= 3.9
 
-STEP2: Install the requirements inside the virtual environment
+```pip3 install -r requirements.txt```
 
-pip3 install -r requirements.txt
+## Configure the backend
 
-STEP3: To Run the project
+In the backend directory:
 
-uvicorn main:app --reload
+Copy the config file **.env.template** and rename it to **.env**
 
-STEP4: Swagger UI available in Below path after the app is started successfully
+```cp .env.template .env```
 
-http://127.0.0.1:8000/docs
+Change the values with yours
+
+## Run the server
+
+```python3 -m backend```
+
+## Get the available routes
+
+http://127.0.0.1:9000/docs
+
